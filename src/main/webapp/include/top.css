@@ -1,0 +1,30 @@
+header {
+ background:#000000;
+ height:80px;
+ line-height:80px;
+ color : #ffffff;
+ text-align:center;
+ font-size : 30px;
+}
+nav {
+ background:#c0c0c0;
+ height:35px;
+ line-height:35px;
+ color : #400040;
+ font-size : 17px;
+}
+section{
+ background:#eaeaea;
+ min-height:550px;
+ font-size : 17px;
+ line-height:27px;
+}
+footer{
+ background:#000000;
+ height:40px;
+ line-height:40px;
+ color : #ffffff;
+ font-size : 17px;
+ text-align:center;
+}
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MEMBER">
+<insert id="MINSERT">
+insert into member(idx, id, password, name, addr1, addr2, zipcode, etc) values(member_seq.nextval, #{id}, #{password}, #{name}, #{addr1}, #{addr2}, #{zipcode}, #{etc})
+
+</insert>
+<select id="MSELECTALL" resultType="member">
+select * from member
+</select>
+
+<select id="MSELECTONE" resultType="member">
+select * from member where idx = #{idx}
+</select>
+<update id="MUPDATE">
+update member set id = #{id}, password = #{password}, name = #{name}, addr1 = #{addr1}, addr2 = #{addr2}, zipcode = #{zipcode}, etc = #{etc} where idx = #{idx}
+</update>
+<delete id="MDELETE">
+delete from member where idx = #{idx}
+</delete>
+
+<select id="MIDCHK" resultType="String">
+select id from member where id = #{id}
+</select>
+
+<select id="MLOGIN" resultType="member">
+select * from member where id = #{id} and password = #{password}
+</select>
+
+</mapper>	

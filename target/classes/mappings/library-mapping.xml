@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="LIBRARY">
+<insert id="LBINSERT">
+insert into library(idx, libraryName, libraryAddr1, libraryAddr2, zipcode, libraryTel, libraryHomepage) values(library_seq.nextval, #{libraryName}, #{libraryAddr1}, #{libraryAddr2}, #{zipcode}, #{libraryTel}, #{libraryHomepage})
+
+</insert>
+<select id="LBSELECTALL" resultType="library">
+select * from library where 1=1 <if test="ch1=='name'"> and libraryName like '%'||#{ch2}||'%'</if> <if test="ch1=='address'"> and libraryAddr1 like '%'||#{ch2}||'%'</if> order by idx asc
+</select>
+
+<select id="LBSELECTONE" resultType="library">
+select * from library where idx = #{idx}
+</select>
+<update id="LBUPDATE">
+update library set libraryName = #{libraryName}, libraryAddr1 = #{libraryAddr1}, libraryAddr2 = #{libraryAddr2}, zipcode = #{zipcode}, libraryTel = #{libraryTel}, libraryHomepage = #{libraryHomepage} where idx = #{idx}
+</update>
+<delete id="LBDELETE">
+delete from library where idx = #{idx}
+</delete>
+</mapper>	

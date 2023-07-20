@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+  "-//mybatis.org//DTD Config 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+  <typeAliases>
+    <typeAlias alias="library"   type="com.library.k1.library.LibraryVO" />  
+    <typeAlias alias="member"   type="com.library.k1.member.MemberVO" />
+    <typeAlias alias="bookmark"   type="com.library.k1.bookmark.BookmarkVO" />
+    
+  </typeAliases>
+  
+
+  <mappers>
+    
+    <mapper resource="mappings/library-mapping.xml"  />
+    <mapper resource="mappings/member-mapping.xml"  />
+    <mapper resource="mappings/bookmark-mapping.xml"  />
+    
+  </mappers>
+</configuration>

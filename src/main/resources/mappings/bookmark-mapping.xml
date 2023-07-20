@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BOOKMARK">
+<insert id="BMINSERT">
+insert into bookmark(idx, l_idx, m_idx, libraryName, id) values(bookmark_seq.nextval, #{l_idx}, #{m_idx}, #{libraryName}, #{id})
+
+</insert>
+<select id="BMSELECTALL" resultType="bookmark">
+SELECT l_idx, m_idx, m.id as id, l.zipcode as zipcode, b.idx as idx, l.LIBRARYNAME as LIBRARYNAME, l.LIBRARYADDR1 as LIBRARYADDR1, l.LIBRARYADDR2 as LIBRARYADDR2, l.LIBRARYHOMEPAGE as LIBRARYHOMEPAGE, l.LIBRARYTEL as LIBRARYTEL, m.addr1 as addr1, m.addr2 as addr2
+FROM library l
+JOIN bookmark b ON l.idx = b.l_idx
+JOIN member m ON b.m_idx = m.idx
+WHERE b.m_idx = #{m_idx}
+</select>
+
+<select id="BMSELECTONE" resultType="bookmark">
+select * from bookmark where idx = #{idx}
+</select>
+
+<select id="BMCHECK" resultType="String">
+select idx from bookmark where l_idx = #{l_idx} and m_idx = #{m_idx} 
+</select>
+
+<delete id="BMDELETE">
+delete from bookmark where idx = #{idx}
+</delete>
+<delete id="BMDELETELIBRARY">
+delete from bookmark where l_idx = #{l_idx}
+</delete>
+
+
+</mapper>	
